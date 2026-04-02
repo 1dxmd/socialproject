@@ -5,17 +5,14 @@
 // ═══════════════════════════════════════════════════════════════
 
 import { eventBus } from "@/lib/event-bus";
-import { startPipeline, getPipelineStatus } from "@/lib/pipeline";
+import { getPipelineStatus } from "@/lib/pipeline";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 export async function GET() {
-  // Start the pipeline on first SSE connection
-  const status = getPipelineStatus();
-  if (!status.isRunning) {
-    startPipeline();
-  }
+  // Pipeline is now driven by browser-based poller → /api/ingest
+  // No auto-start of server-side monitor (Cloudflare blocks it)
 
   const encoder = new TextEncoder();
 

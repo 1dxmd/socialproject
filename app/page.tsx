@@ -182,20 +182,12 @@ export default function Dashboard() {
           </div>
 
           <div className="flex items-center gap-2">
-            <button
-              onClick={() =>
-                handleMonitorAction(
-                  status?.pipeline.isRunning ? "stop" : "start"
-                )
-              }
-              className={`text-xs px-3 py-1 rounded font-bold ${
-                status?.pipeline.isRunning
-                  ? "bg-red-900/50 text-red-400 hover:bg-red-900/70"
-                  : "bg-green-900/50 text-green-400 hover:bg-green-900/70"
-              }`}
+            <a
+              href="/setup"
+              className="text-xs px-3 py-1 rounded font-bold bg-sp-blue/20 text-sp-blue hover:bg-sp-blue/30"
             >
-              {status?.pipeline.isRunning ? "STOP" : "START"} MONITOR
-            </button>
+              POLLER SETUP
+            </a>
 
             <button
               onClick={() =>
